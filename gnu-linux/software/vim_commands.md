@@ -27,3 +27,35 @@
 have to type any needed keyboard input.  The ':source!' command reads from a
 script file character by character, interpreting each character as if you
 typed it.
+
+- **Print the word under the cursor**: echo expand("<cword>")
+
+- Note that in line 28 ":noremap" is used to avoid that any other mappings cause
+trouble.  Someone may have remapped ":call", for example.  In line 24 we also
+use ":noremap", but we do want "<SID>Add" to be remapped.  This is why
+"<script>" is used here.  This only allows mappings which are local to the
+script. |:map-<script>|  The same is done in line 26 for ":noremenu".
+|:menu-<script>|
+
+ 24	noremap <unique> <script> <Plug>TypecorrAdd  <SID>Add
+ ..
+ 28	noremap <SID>Add  :call <SID>Add(expand("<cword>"), 1)<CR>
+
+- Add a command:
+
+ 38	if !exists(":Correct")
+ 39	  command -nargs=1  Correct  :call s:Add(<q-args>, 0)
+ 40	endif
+
+
+
+ 33	  if a:correct | exe "normal viws\<C-R>\" \b\e" | endif
+
+
+unlet:
+
+This is especially useful to clean up used global
+variables and script-local variables (these are not
+deleted when the script ends).  Function-local
+variables are automatically deleted when the function
+ends.
