@@ -1,1 +1,1 @@
-1. [Vim commands](./vim_commands.md)
+1. [Vim](./vim/index.md)
