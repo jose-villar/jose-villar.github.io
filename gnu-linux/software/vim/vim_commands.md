@@ -33,7 +33,7 @@
 
 - `:checkhealth`
 
-- Unfold all/fold all: `zR` and `zM`
+- **Unfold all/fold all**: `zR` and `zM`
 
 - `H`, `M`, `L`: Set cursor position to high, middle or low in the screen
 
