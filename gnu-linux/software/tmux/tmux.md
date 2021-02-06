@@ -6,7 +6,8 @@
 - `tmux new -s <name>`: New session
 - `tmux a -t <mySession>`: Attach a session
 - `)`: Move to next session
-- `(:` Move to previous session
+- `(`: Move to previous session
+- `d`: Detach session
 
 ## Visual Mode
 
