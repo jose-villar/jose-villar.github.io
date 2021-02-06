@@ -27,7 +27,7 @@
 
 - `:marks` and `:delmarks!`
 
-- **Increase enumeration in visual mode**: `<C-A>`
+- **Increase/Decrease enumeration in visual mode**: `<C-A>` / `<C-X>`
 
 - **Fix indentation**: `gg=G`
 
@@ -43,3 +43,5 @@
 - **See current line at the top, middle or bottom of the screen**: `zz`, `zt`, `zb`
 
 - **Insert text from line above or below in insert mode**: `<C-e>`, `<C-y>`
+
+- **Open Vim autocompletion in insert mode**: `<C-n>`
