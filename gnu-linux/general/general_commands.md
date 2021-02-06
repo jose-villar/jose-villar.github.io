@@ -6,3 +6,5 @@
 - `du -chs --exclude="*.txt" .`: Report file space usage in the current
   directory, excluding .txt files
 - `ip r | grep default`: get gateway ip
+- `find . -name '*.srt' -delete`: Find and delete recursively all .srt files in
+  the current directory
