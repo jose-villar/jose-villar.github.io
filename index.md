@@ -1,4 +1,5 @@
 # Welcome To My Notes
 
-1. [Utalca](./utalca)
-2. [GNU-Linux](./gnu-linux)
+1. [GNU-Linux](./gnu-linux)
+2. [Programming](./programming)
+3. [Utalca](./utalca)
