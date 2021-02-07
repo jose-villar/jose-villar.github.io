@@ -26,13 +26,11 @@
 
 ## Command Mode
 
+### Built-in
 - `:checkhealth`
 - `:marks` and `:delmarks!`
 - `:vim /<word>/g **/*`: Search for a word across multiple files. Use `:copen`,
   `:cnext`, `:cprev`
-
-### Built-in
-
 - `-12,-10co.`
 
 ### External
