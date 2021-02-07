@@ -12,7 +12,7 @@
 - `m + {a-z}`: Set mark in current file, valid only within the file
 - `m + {A-Z}`: Set file mark, valid between files
 - `' + {a-zA-Z}`: Go to line where mark was set
-- `\` + {a-zA-Z}`: Go to line and column where mark was set
+- `<backtick> + {a-zA-Z}`: Go to line and column where mark was set
 - `gg=G`: Fix indentation of current file
 - `<C-A>` / `<C-X>`: Increase/decrease numeration
 - `zR` and `zM`: Unfold all/fold all
