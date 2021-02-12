@@ -24,6 +24,8 @@
 - `g&`: Replay last search
 - `g_`: Go to the last non-blank character in a line and [count -1] lines
   downward
+- `<C-w><C-o>`: Make the current window the only one on the screen
+- `]c` / `[c`: Go to next/previous conflict
 
 ## Insert Mode
 
@@ -39,6 +41,9 @@
 - `:vim /<word>/g **/*`: Search for a word across multiple files. Use `:copen`,
   `:cnext`, `:cprev`
 - `-12,-10co.`
+- `:only`: Make the current window the only one on the screen
+- `:ls`: list buffers
+
 
 ### External
 
