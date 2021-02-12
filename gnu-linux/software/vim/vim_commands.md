@@ -18,6 +18,12 @@
 - `zR` and `zM`: Unfold all/fold all
 - `H`, `M`, `L`: Set cursor position to high, middle or low in the screen
 - `zz`, `zt`, `zb`: See current line at the top, middle or bottom of the screen
+- `<C-g>`: Show total number of lines
+- `g8`: Get ASCII code of character under the cursor
+- `g<`: Show last output again
+- `g&`: Replay last search
+- `g_`: Go to the last non-blank character in a line and [count -1] lines
+  downward
 
 ## Insert Mode
 
@@ -27,6 +33,7 @@
 ## Command Mode
 
 ### Built-in
+
 - `:checkhealth`
 - `:marks` and `:delmarks!`
 - `:vim /<word>/g **/*`: Search for a word across multiple files. Use `:copen`,
