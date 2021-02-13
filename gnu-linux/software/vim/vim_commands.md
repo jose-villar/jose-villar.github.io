@@ -43,6 +43,7 @@
 - `-12,-10co.`
 - `:only`: Make the current window the only one on the screen
 - `:ls`: list buffers
+- `:put=range(1,10)`: Insert a list of numbers from 1 to 10
 
 
 ### External
