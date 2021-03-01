@@ -2,8 +2,9 @@
 
 ## Parameters
 
-- There are query string parameters (after /?) and route parameters (after ':').
-        localhost:3000/api/items/:id/?sortBy=nam
+- There are query string parameters (after /?) and route parameters (after
+  ':'). Considering the following server
+  `localhost:3000/api/items/:id/?sortBy=nam`:
 
         app.get('/api/items/:id', (req, res) => res.send(req.params.id));
         app.get('/api/items/:id', (req, res) => res.send(req.query.id));
@@ -71,10 +72,11 @@
         }
 
 - Lodash: Utilities for working with arrays, numbers, objects, etc.
-. joi-password-complexity
+- joi-password-complexity
 - bcrypt: Hash passwords
 - jsonwebtoken:
-- express-async-errors: All you have to do is import it: `import 'express-async-errors';`
+- express-async-errors: All you have to do is import it: `import
+  'express-async-errors';`
 - winston: logging
 - winston-mongodb: logging to mongodb: `import 'winston-mongodb';`
 - jest: `npm i jest --save-dev`. To make jest ES6 compatible, you need to do
@@ -94,6 +96,12 @@
           "reporters": ["./node_modules/jest-vim-reporter"]
         }
 
+  To set a test with mongoose (not recommended), you should change the testing
+  environment to node:
+
+        "jest": {
+          "testEnvironment": "node"
+        }
 
 
 
@@ -149,7 +157,8 @@
           console.log("Morgan enabled...");
         }
 
-- You can set an environment variable and run the program in the same line like this:
+- You can set an environment variable and run the program in the same line like
+  this:
 
         PORT=4000 node index.js
 
