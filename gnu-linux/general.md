@@ -1,4 +1,4 @@
-# Useful Linux Commands
+# General Commmands
 
 - `df`: Report file system disk space usage.
 - `find / -iname <nombreabuscar>`: Search in the root of the file system
