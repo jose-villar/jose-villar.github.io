@@ -11,7 +11,30 @@
 
 ## Dependencies
 
-- Mongoose
+- Mongoose: to connect to a local database and create it at the same time if it
+  doesn't exist:
+
+          mongoose.connect('mongodb://localhost/dbname')
+            .then( () => console.log('Connected to MongoDB...') )
+            .catch( (err) => console.error('Could not connect to mongodb') );
+
+  To set up mongodb, do the following: After installing mongodb and compass,
+  use the following commands:
+
+        sudo mkdir -p /data/db
+        sudo chown -R \`id -un\` /data/db
+
+  To define methods inside a mongoose schema, you can do the following,
+  depending on whether you want a static or instance method:
+
+        someSchema.statics.methodName = function( a1, a2 ) {
+          // some code
+        }
+
+        someSchema.methods.methodName = function( a1, a2 ) {
+          // some code
+        }
+
 - Express
 - Nodemon
 - Dotenv: make a `.env` file and run `node --require dotenv/config index.js`
@@ -103,6 +126,8 @@
           "testEnvironment": "node"
         }
 
+- supertest: for integration testing, to perform server requests.
+- moment: to handle dates and time
 
 
 - To install a development dependency, use: `npm i <package name> --save-dev`
