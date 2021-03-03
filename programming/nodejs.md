@@ -130,6 +130,7 @@
 - moment: to handle dates and time
 
 
+
 - To install a development dependency, use: `npm i <package name> --save-dev`
 - To uninstall a dependency, use: `npm un <package name>`
 
@@ -157,10 +158,10 @@
 
 ### Third-Party Middleware Functions
 
-- Helmet: Help secure application by setting various http headers. It's better
+- helmet: Help secure application by setting various http headers. It's better
   to use it early in the middleware stack.
+- compression: compress the http response sent to the client.
 - Morgan: Log http requests
-- Cors: Improve security according to youtube video
 
 ### Custom Middleware Functions
 
@@ -195,3 +196,52 @@
 
 - They are used for returning html markup to the client, instead of json
   objects. For example, you can use pug
+
+## Deployment
+
+### Heroku
+
+- Create a heroku account
+- Install heroku cli
+
+        heroku login
+        // in case the previous step fails, you might need to set an env
+        // variable:
+        export HTTP_PROXY=https://proxy.server.com:1234
+
+- In `package.json` you have to set the start script:
+
+        "start": "node index.js"
+
+  Also, in `package.json` you have to set a new property called `engines` and
+  specify your version of node:
+
+        "engines": {
+          "node": "8.9.1"
+        }
+- Add you project to a github repository
+- Run the following commands in the root of the project:
+
+        heroku create // creates an app in heroku and a git remote in heroku
+        // you could also run heroku create <app name> but it has to be
+        // a unique name
+- With the following command you can see the git remote repositories:
+
+        git remote -v
+
+- Then deploy to heroku with:
+
+        git push heroku master
+
+- See logs of heroku:
+
+        heroku logs
+
+- Set heroku env variables:
+
+        heroku config:set myPrivateKey=1234
+        heroku config:set NODE_ENV=production
+
+- To see all the env variables that are set, use:
+
+        heroku config
