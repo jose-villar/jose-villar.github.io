@@ -10,7 +10,7 @@
 6. [Clase - RAID](#clase---raid)
 7. [Clase - Servicios DNS](#clase---servicios-dns)
 8. [Clase - Introducción a la seguridad en redes de computadores](#clase---introducción-a-la-seguridad-en-redes-de-computadores)
-9. [Proyecto Unidad 2 y 3][#proyecto-unidad2-y-3]
+9. [Proyecto Unidad 2 y 3][#proyecto-unidad-2-y-3]
 
 ## Clase - Docker
 
