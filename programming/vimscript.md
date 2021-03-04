@@ -73,4 +73,6 @@ It increments the variable `c`, then it substitutes (`//`) with the evaluation o
 
         let c=0 | 5,10g/^* /let c+=1 | s//\=c.'. '
 
+To make a command, you can use:
 
+        command! -range=% NumberedLists let [c,d]=[0,0] | <line1>,<line2>g/^/let [c,d]=[line('.')==d+1 ? c+1 : 1, line('.')] | s//\=c.'. '
