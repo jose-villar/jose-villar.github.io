@@ -343,7 +343,7 @@ instance of it in the program. This way it saves memory.
         const circle = Circle.parse('{ "radius": 1 }');
         const circle 2 = new Circle(2);
 
-### Es6 Classes With Private Members, Getters and Setters
+### ES6 Classes With Private Member and a Getter
 
         const _items = new WeakMap();
         class Stack {
@@ -407,8 +407,8 @@ to a new object.
           console.log("yes")
 
 - **Hoisting:** The process when the js engine moves all the function
-- declarations to the top of the files. It allows to declare a function and use
-- it before it is declared. Note it doesn't work with function constants.
+declarations to the top of the files. It allows to declare a function and use
+it before it is declared. Note it doesn't work with function constants.
 
 
 
