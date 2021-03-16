@@ -8,3 +8,4 @@
 - `ip r | grep default`: get gateway ip
 - `find . -name '*.srt' -delete`: Find and delete recursively all .srt files in
   the current directory
+- `fc-list : family style:` list available fonts.
