@@ -34,6 +34,7 @@
 
 - `<C-e>`, `<C-y>`: Insert text from line above or below in insert mode
 - `<C-n>`: Open Vim autocompletion in insert mode
+- `<C-k>`: insert a digraph. (See `:digraphs` or `:dig` for available options)
 
 ## Command Mode
 
