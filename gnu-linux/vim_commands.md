@@ -26,6 +26,8 @@
   downward
 - `<C-w><C-o>`: Make the current window the only one on the screen
 - `]c` / `[c`: Go to next/previous conflict
+- `<C-f>`: Scroll down entire page
+- `<C-b>`: Scroll up entire page
 
 ## Insert Mode
 
