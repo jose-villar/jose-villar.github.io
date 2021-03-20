@@ -28,6 +28,7 @@
 - `]c` / `[c`: Go to next/previous conflict
 - `<C-f>`: Scroll down entire page
 - `<C-b>`: Scroll up entire page
+- `K`:  Run a program (`man` is the default) to lookup the word under the cursor.
 
 ## Insert Mode
 
