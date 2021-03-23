@@ -6,8 +6,8 @@
 - `gqq`: Format current line
 - `<C-u>` / `<C-d>`: Scroll up / down
 - `f + <character>`: Find character in line
-- ``<C-W-V>``: Split vertically
-- `<C-W-L>`: Split horizontally
+- ``<C-w-v>``: Split vertically
+- `<C-w-s>`: Split horizontally
 - `*` / `#`: Search for word under the cursor (forward/backwards)
 - `m + {a-z}`: Set mark in current file, valid only within the file
 - `m + {A-Z}`: Set file mark, valid between files
@@ -35,6 +35,7 @@
 - `<C-e>`, `<C-y>`: Insert text from line above or below in insert mode
 - `<C-n>`: Open Vim autocompletion in insert mode
 - `<C-k>`: insert a digraph. (See `:digraphs` or `:dig` for available options)
+- `<C-r>`: insert contents from a register.
 
 ## Command Mode
 
