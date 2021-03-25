@@ -1,0 +1,250 @@
+# Git
+
+## Configuration
+
+~~~
+git config --global user.name <username>
+git config --global user.email <email>
+git config --global core.editor nvim
+git config --global init.defaultBranch main
+// disable fast forward merges
+git config --global ff no
+// UNIX:
+git config --global core.autocrlf input
+// WINDOWS:
+git config --global core.autocrlf true
+// Show config
+git config --list
+// Save credentials to avoid git asking for them every time
+git config --global credential.helper store
+~~~
+
+## Creating a New Project
+
+### Connect Local Repository to the Cloud
+
+~~~
+git init
+git remote add origin <cloud repo url>
+git push -u origin main // main is the local branch
+~~~
+
+### Connect Cloud Repository to the System
+
+~~~
+git clone
+git pull
+~~~
+
+## Basic Flow
+
+~~~
+git status
+git add
+git commit -m 'message'
+git push origin <branchName>
+// This command specifies that you are pushing to the main branch (the
+// branch on Girhub) on origin (the Github server)
+git push origin master.
+~~~
+
+
+## Branches
+
+~~~
+// Create new branch
+git branch <branchName>
+// Add the new branch to the repo
+git push --set-upstream origin <branchName>
+// To switch to a branch, there are 2 ways:
+git checkout <branchName>
+git switch <branchName>
+//Delete a branch
+git branch -d <branchName>
+//Show current branch
+git branch
+~~~
+
+## Merges
+
+~~~
+// Merge target branch into current one
+git merge <target>
+~~~
+
+## Revert
+
+~~~
+// Instead of removing the commit, it figures out how to invert the changes
+// in the commit, then appends a new commit with the inverse content
+git revert <commitHash>
+~~~
+
+## Reset
+
+~~~
+git reset <commitDestino>
+git push -f
+
+// Examples
+// Removes last commit, keeping changes staged
+git reset --soft HEAD~1
+
+// Removes last commit, keeping current changes unstaged
+git reset --mixed HEAD~1
+
+// Removes last commit, discarding local changes
+git reset --hard HEAD~1
+
+// To see commits lost when doing a reset
+git reflog
+//Then you can reset back to one of them
+~~~
+
+## Restore
+
+~~~
+// If the change has not been added you can just do a:
+git restore .
+
+// Discard changes from staged area (they persist in working directory)
+git restore --staged <target>
+
+// Remove from untracked
+git clean <flags> <target>
+// Use git clean -h to see short help or --help to see the verbose version
+~~~
+
+
+
+## Inspecting
+
+~~~
+// Press q to exit the commit log.
+// Show commits
+git log
+git log -<n> // show last n commits
+git log --oneline
+git log --all --graph --decorate
+
+// Filter commits by day
+git log --after aaaa-mm-dd
+git log --after="2020-11-31"
+git log --after="yesterday"
+git log --after="one week ago"
+
+git log --author="Alana"
+
+// See what files were changed on every commit
+git log --stat
+
+// Show contributions by author
+git shortlog
+~~~
+
+### Commits
+
+
+#### Differences
+
+~~~
+// Show commit info
+git show <commitHash>
+
+// Filter commits by range
+git log <some hash> <some other hash>
+
+// Filter by commit message
+git log --grep="GUI"
+
+// See the changes
+git log --patch
+
+// See commits that changed some file
+git log <filename>
+~~~
+
+#### Details
+
+~~~
+// Show the state of a file in a given commit
+git show <commitHash>:<path/to/file>
+
+// Move to a previous state of the project in read-only mode
+git checkout <commit id>
+
+// See commits that modified some line
+git log -S"some line of code"
+~~~
+
+
+
+## Various
+
+### Remove Untracked
+
+~~~
+git clean -d -n // dry run
+git clean -d -f
+~~~
+
+~~~
+// Remove the branches that no longer exist in origin
+git remote prune origin
+~~~
+
+
+### Restore Older Version of a File
+
+~~~
+// Restore the version of a file present in some other commit
+git checkout <commitHash> <file>
+
+// Restore a file to a previous version (1 commit before)
+git restore --source=HEAD~1 <target file>
+~~~
+
+
+### Modify Commit Message
+
+~~~
+git commit --amend
+~~~
+
+
+## Rebasing
+
+~~~
+git rebase <Target branch>
+~~~
+
+
+## Index
+
+~~~
+// List files in index
+git ls-files
+~~~
+
+
+## Do and Stage in 1 Step
+
+~~~
+git remove
+git rename
+~~~
+
+## Comparing
+
+~~~
+// Shows unstaged changes, comparing to the last commit
+git diff
+
+// Compare staged files with the version before staging them
+git diff --staged
+~~~
+
+
+## Tips
+
+- Commit messages should be based on logical units of work, not added or removed files.
