@@ -3,18 +3,23 @@
 ## Configuration
 
 ~~~
+// Show config
+git config --list
+
 git config --global user.name <username>
 git config --global user.email <email>
 git config --global core.editor nvim
 git config --global init.defaultBranch main
-// disable fast forward merges
+
+// Disable fast forward merges
 git config --global ff no
+
+// Handle EOL
 // UNIX:
 git config --global core.autocrlf input
 // WINDOWS:
 git config --global core.autocrlf true
-// Show config
-git config --list
+
 // Save credentials to avoid git asking for them every time
 git config --global credential.helper store
 ~~~
@@ -42,26 +47,26 @@ git pull
 git status
 git add
 git commit -m 'message'
-git push origin <branchName>
-// This command specifies that you are pushing to the main branch (the
-// branch on Girhub) on origin (the Github server)
-git push origin master.
+git push origin <branchName> // pushing changes to origin/<branchName>
 ~~~
-
 
 ## Branches
 
 ~~~
 // Create new branch
 git branch <branchName>
+
 // Add the new branch to the repo
 git push --set-upstream origin <branchName>
+
 // To switch to a branch, there are 2 ways:
 git checkout <branchName>
 git switch <branchName>
-//Delete a branch
+
+// Delete a branch
 git branch -d <branchName>
-//Show current branch
+
+// Show current branch
 git branch
 ~~~
 
@@ -96,9 +101,9 @@ git reset --mixed HEAD~1
 // Removes last commit, discarding local changes
 git reset --hard HEAD~1
 
-// To see commits lost when doing a reset
+// See all commits (including lost commit when doing a reset). Then you can
+// reset back to one of them
 git reflog
-//Then you can reset back to one of them
 ~~~
 
 ## Restore
@@ -120,7 +125,6 @@ git clean <flags> <target>
 ## Inspecting
 
 ~~~
-// Press q to exit the commit log.
 // Show commits
 git log
 git log -<n> // show last n commits
@@ -134,6 +138,8 @@ git log --after="yesterday"
 git log --after="one week ago"
 
 git log --author="Alana"
+
+// Press q to exit the commit log.
 
 // See what files were changed on every commit
 git log --stat
@@ -177,9 +183,37 @@ git checkout <commit id>
 git log -S"some line of code"
 ~~~
 
+## Rebasing
 
+~~~
+git rebase <Target branch>
+~~~
+
+## Comparing
+
+~~~
+// Shows unstaged changes, comparing to the last commit
+git diff
+
+// Compare staged files with the version before staging them
+git diff --staged
+~~~
 
 ## Various
+
+### Index
+
+~~~
+// List files in index
+git ls-files
+~~~
+
+### Do and Stage in 1 Step
+
+~~~
+git remove
+git rename
+~~~
 
 ### Remove Untracked
 
@@ -204,46 +238,11 @@ git checkout <commitHash> <file>
 git restore --source=HEAD~1 <target file>
 ~~~
 
-
 ### Modify Commit Message
 
 ~~~
 git commit --amend
 ~~~
-
-
-## Rebasing
-
-~~~
-git rebase <Target branch>
-~~~
-
-
-## Index
-
-~~~
-// List files in index
-git ls-files
-~~~
-
-
-## Do and Stage in 1 Step
-
-~~~
-git remove
-git rename
-~~~
-
-## Comparing
-
-~~~
-// Shows unstaged changes, comparing to the last commit
-git diff
-
-// Compare staged files with the version before staging them
-git diff --staged
-~~~
-
 
 ## Tips
 
