@@ -186,7 +186,8 @@ git log -S"some line of code"
 ## Rebasing
 
 ~~~
-git rebase <Target branch>
+// you should pick the parent of the commit you want to modify
+git rebase -i <Target commit>
 ~~~
 
 ## Comparing
