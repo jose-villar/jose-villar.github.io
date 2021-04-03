@@ -185,9 +185,24 @@ git log -S"some line of code"
 
 ## Rebasing
 
+### Join Commits
+
 ~~~
 // you should pick the parent of the commit you want to modify
 git rebase -i <Target commit>
+git rebase --continue // to finish
+~~~
+
+### Split Commits
+
+~~~
+git rebase -i <Target commit>
+// then pick the edit option
+git log
+git reset HEAD^
+git add ...
+git commit ...
+git rebase --continue
 ~~~
 
 ## Comparing
