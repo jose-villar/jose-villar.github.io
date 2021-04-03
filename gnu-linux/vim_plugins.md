@@ -25,3 +25,10 @@
         nmap <Leader>dg2 :diffget //2<BAR>:diffupdate<CR>
         "Merge branch (named in the git merge command):3
         nmap <Leader>dg3 :diffget //3<BAR>:diffupdate<CR>
+
+### Rebasing
+
+~~~
+G log
+// Place your cursor over a commit and then press ri
+~~~
