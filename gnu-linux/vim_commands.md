@@ -49,7 +49,13 @@
 - `:only`: Make the current window the only one on the screen
 - `:ls`: list buffers
 - `:put=range(1,10)`: Insert a list of numbers from 1 to 10
-
+- `:find /<filename>:` Go to another file
+- `:vim /<word>/g /*`: Find a word inside the files
+- Search and replace in multiple files:
+~~~
+:vimgrep/<word>/gj **/*
+:cfdo %s/<word>/<newWord>/g | update
+~~~
 
 ### External
 
