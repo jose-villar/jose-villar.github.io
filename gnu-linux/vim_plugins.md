@@ -32,3 +32,7 @@
 G log
 // Place your cursor over a commit and then press ri
 ~~~
+
+## Signify
+
+- Use `[c` and `]c` to jump through chunks.
