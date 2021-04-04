@@ -53,8 +53,10 @@
 - `:vim /<word>/g /*`: Find a word inside the files
 - Search and replace in multiple files:
 ~~~
+// the j flag is to prevent Vim from jumping to the first match immediately
 :vimgrep/<word>/gj **/*
 :cfdo %s/<word>/<newWord>/g | update
+// you can use :copen to navigate through the quickfix list
 ~~~
 
 ### External
