@@ -1,5 +1,6 @@
 # Welcome To My Notes
 
-1. [GNU-Linux](./gnu-linux)
-2. [Programming](./programming)
-3. [Utalca](./utalca)
+1. [ Linux ](./linux)
+1. [ Software ](./software)
+1. [Programming](./programming)
+1. [Utalca](./utalca)

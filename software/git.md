@@ -21,7 +21,10 @@ git config --global core.autocrlf input
 git config --global core.autocrlf true
 
 // Save credentials to avoid git asking for them every time
-git config --global credential.helper store
+git config --global credential.helper cache
+
+// Remove saved credentials
+git config --global --unset credential.helper
 ~~~
 
 ## Creating a New Project
@@ -116,8 +119,8 @@ git restore .
 git restore --staged <target>
 
 // Remove from untracked
-git clean <flags> <target>
-// Use git clean -h to see short help or --help to see the verbose version
+git rm --cached <target>
+// Use git rm -h to see short help or --help to see the verbose version
 ~~~
 
 

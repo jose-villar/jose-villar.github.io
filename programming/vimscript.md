@@ -76,3 +76,19 @@ It increments the variable `c`, then it substitutes (`//`) with the evaluation o
 To make a command, you can use:
 
         command! -range=% NumberedLists let [c,d]=[0,0] | <line1>,<line2>g/^/let [c,d]=[line('.')==d+1 ? c+1 : 1, line('.')] | s//\=c.'. '
+
+## Variables
+
+The scope name by itself can be used as a Dictionary. For example, to delete
+all script-local variables:
+
+        :for k in keys(s:)
+        :    unlet s:[k]
+        :endfor
+
+The behavior of `==` depends on a user's settings.
+
+-  `==?` is the "case-insensitive no matter what the user has set" comparison operator
+-  `==#` is the "case-sensitive no matter what the user has set" comparison operator.
+
+
