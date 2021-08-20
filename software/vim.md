@@ -38,6 +38,16 @@ G log
 ## Signify
 
 - Use `[c` and `]c` to jump through chunks.
+
+## Eunuch
+
+- To use the SudoWrite command, you need to set up a program to ask for the
+  password when required. In order to do so, you can install `x11-ssh-askpass`, 
+  modify the `/etc/sudo.conf` and add the line:
+
+        Path askpass /usr/lib/ssh/ssh-askpass
+
+
 # Vim Commands
 
 ## Normal Mode
