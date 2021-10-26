@@ -263,6 +263,35 @@ git restore --source=HEAD~1 <target file>
 git commit --amend
 ~~~
 
+### Stash
+
+~~~
+// Save changes locally, to be used later on and clean up the working
+// environment
+git stash
+// Restore stashed changes
+git stash pop
+~~~
+
+### Remove Old Local Branches
+
+~~~
+git branch -vv | awk '/: gone]/{print $1}' git remote update --prune | xargs
+git branch -d
+~~~
+
+### Discard Local Changes
+
+~~~
+git reset --hard origin/main
+~~~
+
+### Add All Changes to Commit
+
+~~~
+git add -A
+~~~
+
 ## Tips
 
 - Commit messages should be based on logical units of work, not added or removed files.
