@@ -76,3 +76,10 @@ You can use a yaml file with default configurations by doing the following:
 - Use `--filter pandoc-fignos`
 - Note that any use of `--filter pandoc-citeproc` or `--bibliography=FILE`
   should come after the `pandoc-fignos` or `pandoc-xnos` filter calls.
+
+### Citation of Tables
+
+- Install `pandoc-tablenos`
+- Use `--filter pandoc-tablenos`
+- Note that any use of `--filter pandoc-citeproc` or `--bibliography=FILE`
+  should come after the `pandoc-fignos` or `pandoc-xnos` filter calls.
