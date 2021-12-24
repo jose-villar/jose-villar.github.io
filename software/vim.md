@@ -87,6 +87,11 @@ G log
 - `<C-k>`: insert a digraph. (See `:digraphs` or `:dig` for available options)
 - `<C-r>`: insert contents from a register.
 
+### Autocompletion trick
+
+- Start typing and then alternate `<C-x>` and `<C-n>` to autocomplete the
+  sentence.
+
 ## Command Mode
 
 ### Built-in
