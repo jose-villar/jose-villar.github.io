@@ -86,6 +86,7 @@ G log
 - `<C-n>`: Open Vim autocompletion in insert mode
 - `<C-k>`: insert a digraph. (See `:digraphs` or `:dig` for available options)
 - `<C-r>`: insert contents from a register.
+- `<C-v>`: insert a Unicode character, e.g.: `<C-v>u1234`
 
 ### Autocompletion trick
 
