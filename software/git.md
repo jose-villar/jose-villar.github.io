@@ -348,3 +348,13 @@ git add -A
 ## Tips
 
 - Commit messages should be based on logical units of work, not added or removed files.
+
+## Error Solving
+
+- To fix the "*Permission denied (...). Please make sure you have the correct
+  access rights and the repository exists.*", you have to add the key to the
+  ssh-agent: `ssh-add /path/to/my-non-standard-ssh-folder/id_rsa`. In summary,
+  when `ssh-add -l` returns *The agent has no identities*, it means that keys
+  used by *ssh* (stored in files such as `~/.ssh/id_rsa`, `~/.ssh/id_dsa`,
+  etc.) are either missing, they are not known to *ssh-agent*, which is the
+  authentication agent, or that their permissions are set incorrectly.
