@@ -118,12 +118,13 @@ git restore .
 // Discard changes from staged area (they persist in working directory)
 git restore --staged <target>
 
+// Remove file from commit but keep changes for later use
+git rm -- cached <path>
+
 // Remove from untracked
 git rm --cached <target>
 // Use git rm -h to see short help or --help to see the verbose version
 ~~~
-
-
 
 ## Inspecting
 
@@ -133,14 +134,22 @@ git log
 git log -<n> // show last n commits
 git log --oneline
 git log --all --graph --decorate
+git log <path> // show commits that modified certain path
 
 // Filter commits by day
 git log --after aaaa-mm-dd
 git log --after="2020-11-31"
 git log --after="yesterday"
 git log --after="one week ago"
+git log --since="one week ago"
+git log --before="aaaa-mm-dd"
+git log --until="aaaa-mm-dd"
 
 git log --author="Alana"
+git log --commiter="Alana"
+
+// Show only commits where message contains certain regex
+git log --grep=<regex>
 
 // Press q to exit the commit log.
 
@@ -149,6 +158,18 @@ git log --stat
 
 // Show contributions by author
 git shortlog
+
+
+// Shows the differences in tracked files between index and working tree
+git diff
+
+// Shows changes between specified commits or branches
+git diff <commit/branch 1> <commit/branch 2>
+
+// Shows changes between HEAD and specified commit/branch.
+git diff HEAD <commit/branch>
+git diff HEAD <commit/branch> -- <path>
+
 ~~~
 
 ### Commits
@@ -218,7 +239,36 @@ git diff
 git diff --staged
 ~~~
 
+## Tags
+
+~~~
+// Lists all tags in repository.
+git tag --list
+
+// Creates a new tag with a message and a name which references the commit that
+the HEAD is at. We could also give third parameter for the tag which would
+contain the commit.
+git tag -a -m <message> <name>
+
+// Deletes the named tag.
+git tag -d <name>
+
+// Tags need to be pushed separately to the repository if you want to make them
+public. You should avoid pushing all tags because removing unwanted tags from
+remote repository is a bit problematic.
+git push <remote repository> <tag name>
+~~~
+
 ## Various
+
+### Remove Branch From Remote Repository
+~~~
+git push <remote repository> :<branch>
+// Remove branch from remote repository.
+git push -d  <remote repository> :<branch>
+// Before pushing branch should be removed from local repository.
+git push origin :feature/create-awesome
+~~~
 
 ### Index
 
@@ -230,7 +280,7 @@ git ls-files
 ### Do and Stage in 1 Step
 
 ~~~
-git remove
+git rm
 git rename
 ~~~
 
@@ -252,6 +302,9 @@ git remote prune origin
 ~~~
 // Restore the version of a file present in some other commit
 git checkout <commitHash> <file>
+
+// The -p flag let us recover hunks of the file
+git checkout -p <commit/branch> -- <path>
 
 // Restore a file to a previous version (1 commit before)
 git restore --source=HEAD~1 <target file>
