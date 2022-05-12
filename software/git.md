@@ -103,10 +103,42 @@ git reset --mixed HEAD~1
 
 // Removes last commit, discarding local changes
 git reset --hard HEAD~1
+~~~
 
-// See all commits (including lost commit when doing a reset). Then you can
-// reset back to one of them
+## Reflog
+
+~~~
+
+// Note: It should be noted that reflogs are personal and not saved in remote
+// repositories. By default reflog is kept around for 90 after which Git
+// automagically deletes it. Reflogs are kept in path
+// .git/logs/refs/heads/{branch}. If you’re actively using stash you should
+// also remember that there is a separate reflog for stash.
+// Equal to git reflog show HEAD. Shows reference changes in HEAD.
 git reflog
+
+// Shows reflog from all branches.
+git reflog --all
+
+// Shows reflog from a branch.
+git reflog <branch>
+
+// Shows reflog from stash.
+git reflog stash
+
+git reflog <branch>@{time}
+// Time can be following format:
+// 1.minute.ago
+// 1.hour.ago
+// 1.day.ago
+// yesterday
+// 1.week.ago
+// 1.month.ago
+// 1.year.ago
+// 2020-01-01.09:00:00
+
+// You can also use plural form (5.minutes.ago) and they can be combined
+// (1.year.1.month.ago).
 ~~~
 
 ## Restore
@@ -131,6 +163,9 @@ git rm --cached <target>
 ~~~
 // Show commits
 git log
+// Show in a format designed for machine consumption.
+// (--porcelain)
+git log -p
 git log -<n> // show last n commits
 git log --oneline
 git log --all --graph --decorate
@@ -261,6 +296,33 @@ git push <remote repository> <tag name>
 
 ## Various
 
+### Blame
+
+~~~
+// Shows every line and who made latest change to that line from the specified
+path.
+git blame <path>
+
+// Shows only specified lines from path. Start and end can either be integers
+or regexp
+git blame -L <start>,<end> <path>
+~~~
+
+
+### Remote Repositories
+
+~~~
+// List remote repositories
+git remote -v
+
+// Add a new remote
+git remote add <name> <url>
+
+// Remove a remote
+git remote rm <name>
+
+~~~
+
 ### Remove Branch From Remote Repository
 ~~~
 git push <remote repository> :<branch>
@@ -321,9 +383,17 @@ git commit --amend
 ~~~
 // Save changes locally, to be used later on and clean up the working
 // environment
-git stash
+git stash [<message>]
+// Restore stashed changes and deletes the stash
+git stash pop [<stash_id>]
 // Restore stashed changes
-git stash pop
+git stash apply
+git stash apply stash@{2}
+// List all saved stashes
+git stash list
+// Delete stash
+git stash drop [<stash_id>, e.g. stash@{5}]
+
 ~~~
 
 ### Remove Old Local Branches
@@ -345,9 +415,104 @@ git reset --hard origin/main
 git add -A
 ~~~
 
+
+### Rename Branch
+
+~~~
+git branch -m <branch> <new_name>
+~~~
+
+### Recover Single Commit
+~~~
+// Replay a single commit to your repository.
+git cherry-pick <SHA>
+~~~
+
+### Find common ancestor(s) between two commits
+
+~~~
+git merge-base feature/create-awesome master
+~~~
+
+## Different Git Workflows
+
+### Feature Branch Workflow
+
+~~~
+git branch feature/create-awesome
+~~~
+
+
+### Gitflow Workflow
+
+Gitflow it is best suited for projects with scheduled releases. It uses feature
+branches but also has a special branch for finalizing a release and
+integrations.
+
+In addition to having a master branch you’ll also have a develop branch. Actual
+releases are kept in master and are identified with tags. Develop is used for
+integrating feature branches.
+
+Feature branches are made from develop instead of master. When a feature is
+complete it is integrated back to develop.
+
+When release date is starting to get close you’ll create a release branch from
+develop. After this no new features can be added to a release. Only bug fixes,
+generating documentation and other release related activities are allowed in
+release branch. When a release is ready to be shipped, release branch will be
+merged into master branch and tagged with a version number. After this release
+will be merged back into develop. A separate release branch will allow some of
+the team to finalize a release while others can still focus on developing new
+features.
+
+Hotfixing a product in production can sometimes be a little tricky. You’ll
+create a hotfix branch from master branch. When the fix is ready the hotfix
+branch will be merged back into master and develop. After this a new version
+number will be updated to master.
+
+### Forking Workflow
+
+In forking workflow, a remote repository is shared between multiple developers.
+Every developer has their own remote repository. It’s usually utilized in open
+source projects. Also some large corporations might find forking workflow
+useful. This would require a separate release master or a similar person to
+take care of the official remote repository. Forking workflow might also be a
+bit heavy style of version control.
+
+Developers push commits to their own remote repositories but only project
+maintainers can push to official remote repository. This allows maintainers to
+accept changes from other contributors without giving them a write access to
+official remote repository.
+
+As a new developer you’ll start by forking the official remote repository. The
+new fork you just created will act as your public repository. Other developers
+cannot push their commits to your public repository but they can pull yours. As
+with other workflows the next step is to clone your public repository. In this
+case your public repository is a clone of the official repository.
+
+With other workflows you’ve had a single remote repository called origin. With
+forking workflow you’ll need to add another remote repository to your local
+repository. The other remote repository is the official repository of the
+project. By convention it is called upstream. Adding a second remote repository
+allows you to pull changes from one place and push yours to another. You’ll
+pull changes from official repository and push changes to your own public
+repository.
+
+~~~
+git pull upstream master
+
+git push origin feature/feature-name
+~~~
+
+When you are ready to merge a feature into official repository the maintainer
+of the repository has to pull your changes from your public repository. After
+verifying that everything works fine he’ll update the official repository with
+your changes. 
+
 ## Tips
 
-- Commit messages should be based on logical units of work, not added or removed files.
+- Commit messages should be based on logical units of work, not added or
+  removed files.
 
 ## Error Solving
 
@@ -358,3 +523,6 @@ git add -A
   used by *ssh* (stored in files such as `~/.ssh/id_rsa`, `~/.ssh/id_dsa`,
   etc.) are either missing, they are not known to *ssh-agent*, which is the
   authentication agent, or that their permissions are set incorrectly.
+
+- To fix the "*Not something we can merge*" error, just fetch from the remote
+  repository.
