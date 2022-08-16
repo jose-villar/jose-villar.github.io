@@ -2,6 +2,11 @@
 
 ## Beamer
 
+### Available Themes
+
+- `/usr/share/texmf-dist/tex/latex/beamer`
+
+
 ### Header
 
         ---
