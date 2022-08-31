@@ -79,6 +79,7 @@ G log
 - `<C-f>`: Scroll down entire page
 - `<C-b>`: Scroll up entire page
 - `K`:  Run a program (`man` is the default) to lookup the word under the cursor.
+- `]z`: Move to the end of the current open fold
 
 ## Insert Mode
 
