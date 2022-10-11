@@ -108,6 +108,7 @@ G log
 - `:put=range(1,10)`: Insert a list of numbers from 1 to 10
 - `:find /<filename>:` Go to another file
 - `:vim /<word>/g /*`: Find a word inside the files
+- `:lopen`: Open locationlist (to see whole status bar messages)
 - Search and replace in multiple files:
 ~~~
 // the j flag is to prevent Vim from jumping to the first match immediately
