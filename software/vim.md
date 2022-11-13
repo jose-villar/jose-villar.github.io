@@ -124,3 +124,10 @@ G log
           :%! column -t
           :%! sort -k2
 
+- Format uniformly: one space between words and two after sentences:
+
+          :%! fmt -u
+
+- Format to set maximum line width to 80 characters:
+
+          :%! fmt -w 80
