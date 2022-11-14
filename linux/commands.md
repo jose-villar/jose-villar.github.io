@@ -19,8 +19,36 @@
 
 - Embed subtitles to a video:
 
-    mkvmerge -o output.mkv video.mp4 subtitles.srt
+        mkvmerge -o output.mkv video.mp4 subtitles.srt
 
 - Merge videos:
 
-    mkvmerge -o output.mkv video1.mkv + video2.mkv
+        mkvmerge -o output.mkv video1.mkv + video2.mkv
+
+- Get information of a video:
+
+        mkvmerge --identify input.mkv
+
+- Get audio:
+
+        ffmpeg -i video.mp4 audio.mp3
+
+        mkvmerge -D input.mkv -o audio.aac
+
+        # mkvmerge options:
+        -A, --no-audio
+        -D, --no-video
+        -S, --no-subtitles
+        -B, --no-buttons
+        -T, --no-track-tags
+        --no-chapters
+        -M, --no-attachments
+        --no-global-tags
+
+- Remove audio
+
+        mkvmerge -A input.mkv -o output.mkv
+
+- Add audio to video:
+
+        mkvmerge input.mkv audio.mp3 -o output.mkv
