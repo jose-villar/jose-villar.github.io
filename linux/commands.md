@@ -52,3 +52,8 @@
 - Add audio to video:
 
         mkvmerge input.mkv audio.mp3 -o output.mkv
+
+- Trim a video
+
+        # The output will last 20 seconds
+        ffmpeg -ss 00:00:10 -to 00:00:30 -i input.mkv -c copy output.mkv
