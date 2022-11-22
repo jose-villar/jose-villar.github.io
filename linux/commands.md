@@ -24,6 +24,8 @@
 - Merge videos:
 
         mkvmerge -o output.mkv video1.mkv + video2.mkv
+        mkvmerge -o output.mkv 1.mkv + 2.mkv --generate-chapters when-appending
+
 
 - Get information of a video:
 
