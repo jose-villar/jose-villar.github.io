@@ -23,8 +23,14 @@
 
 - Merge videos:
 
+        # these 2 ways are equivalent
         mkvmerge -o output.mkv video1.mkv + video2.mkv
+        mkvmerge -o output.mkv '[' video1.mkv video2.mkv ']'
+
         mkvmerge -o output.mkv 1.mkv + 2.mkv --generate-chapters when-appending
+
+        # join all the videos together
+        mkvmerge -o output.mkv '[' * ']'
 
 
 - Get information of a video:
