@@ -25,6 +25,10 @@ git config --global credential.helper cache
 
 // Remove saved credentials
 git config --global --unset credential.helper
+
+// Automatically set the upstream tracking branch (useful when all branches are
+// expected to have the same name on the remote)
+git config --global push.autoSetupRemote true
 ~~~
 
 ## Creating a New Project
