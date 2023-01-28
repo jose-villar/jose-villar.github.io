@@ -61,6 +61,16 @@
 
         mkvmerge input.mkv audio.mp3 -o output.mkv
 
+- Record audio:
+
+        # Pick the name of a source and use it instead of default
+        pactl list sources
+        ffmpeg -f pulse -i default output.wav
+
+- Trim audio:
+
+        ffmpeg -i input.wav -ss 20 -to 40 -c copy out.wav
+
 - Trim a video
 
         # The output will last 20 seconds
