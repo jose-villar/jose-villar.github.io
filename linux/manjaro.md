@@ -17,3 +17,4 @@
 - Force package list synchronisation and update:
 
         sudo pacman -Syyu
+        sudo pamac upgrade
