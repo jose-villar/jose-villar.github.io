@@ -12,6 +12,9 @@
   the current directory
 - `fc-list : family style:` List available fonts.
 - `grep -rl <string>`: List files with a given string, recursively.
+- `cat input.txt | tr "\n" " " | rg --pcre2 "\b(\w+)\s+\1\b"`: Print out
+  repeated consecutive words.
+- `inxi -F`: Display system information
 
 # Media
 
