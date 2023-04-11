@@ -78,3 +78,8 @@
 
         # The output will last 20 seconds
         ffmpeg -ss 00:00:10 -to 00:00:30 -i input.mkv -c copy output.mkv
+
+- Split a video
+
+        # Split video into a part of 7 seconds and the rest
+        ffmpeg -i input.mkv -to 07 -c copy p1.mkv -ss 07 -c copy p2.mkv
