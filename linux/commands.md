@@ -83,3 +83,9 @@
 
         # Split video into a part of 7 seconds and the rest
         ffmpeg -i input.mkv -to 07 -c copy p1.mkv -ss 07 -c copy p2.mkv
+
+- Decrease image resolution
+
+        # Generate an image 20px wide, keeping its aspect ratio
+        ffmpeg -i img.jpg -vf scale=20:-1 img-small.jpg
+
