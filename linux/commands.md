@@ -1,12 +1,9 @@
 # General Commands
 
-- `df`: Report file system disk space usage.
 - `find / -iname <nombreabuscar>`: Search in the root of the file system
 - `tar -xzf *.tar.gz/zip`: Extract a .zip or .tar.gz
 - `tar -czf compressed_archive.tar.gz *`: Create a compressed archive out of
   all the files in the current directory
-- `du -chs --exclude="*.txt" .`: Report file space usage in the current
-  directory, excluding .txt files
 - `ip r | grep default`: get gateway ip
 - `find . -name '*.srt' -delete`: Find and delete recursively all .srt files in
   the current directory
@@ -15,6 +12,22 @@
 - `cat input.txt | tr "\n" " " | rg --pcre2 "\b(\w+)\s+\1\b"`: Print out
   repeated consecutive words.
 - `inxi -F`: Display system information
+# Disks
+
+- `du -chs --exclude="*.txt" .`: Report file space usage in the current
+  directory, excluding .txt files
+- `df`: Report file system disk space usage.
+
+- `lsblk`: list information about block devices, which typically include hard
+  drives, solid-state drives, and other storage devices, as well as partitions on
+  those devices.
+- `sudo umount /dev/sdX`: Unmount device `sdX`.
+- `sudo dd if=/path/to/iso of=/dev/sdX bs=4M status=progress`: write image to
+  the USB drive. `if` stands for _input file_, `of` stands for _output file_,
+  `bs=4M` means the _block size_ of _4M_ and `status=progress` is to show the
+  progress. After the `dd` command finishes, run the following command to ensure
+  that all data is written to the USB drive and it's safe to remove: `sync`
+- `eject /dev/sdX`: Safely eject the USB drive from your system.
 
 # Media
 
