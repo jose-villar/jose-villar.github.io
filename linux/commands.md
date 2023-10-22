@@ -55,6 +55,15 @@ example:
 
 # Media
 
+## Media Types
+
+- `xdg-mime query filetype file.pdf`: find out the _MIME_ type of my `file.pdf`. This
+  command will return the _MIME_ type, such as `application/pdf`.
+- `xdg-mime default evince.desktop application/pdf`: Set the default
+  application for the _MIME_ type `application/pdf` to `evince`.
+- `xdg-mime query default application/pdf`: this command returns the `.desktop`
+  file of the default application to open `pdf` files.
+
 ## Video Editing
 
 - Embed subtitles to a video:
@@ -71,7 +80,6 @@ example:
 
         # join all the videos together
         mkvmerge -o output.mkv '[' * ']'
-
 
 - Get information of a video:
 
@@ -125,4 +133,3 @@ example:
 
         # Generate an image 20px wide, keeping its aspect ratio
         ffmpeg -i img.jpg -vf scale=20:-1 img-small.jpg
-
