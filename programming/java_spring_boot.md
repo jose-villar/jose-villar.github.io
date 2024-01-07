@@ -12,7 +12,7 @@ This architecture considers:
   decision making processes)
 - Data access layer (repository): it has all the CRUD operations.
 
-[Three layers architecture](./assets/three_layers_architecture.png)
+![Three layers architecture](./assets/three_layers_architecture.png)
 
 ## Best practices and Notes
 
@@ -25,4 +25,4 @@ This architecture considers:
 - `@Configuration` marks a class as a source of `Beans` definitions.
 - `@Autowired` wires the class into the `Bean` that needs it.
 
-[Dependency injection process](./assets/dependency_injection_process.png)
+![Dependency injection process](./assets/dependency_injection_process.png)
