@@ -24,5 +24,7 @@ This architecture considers:
   `class` into a `Bean`. `@Controller` also derives from `@Component`.
 - `@Configuration` marks a class as a source of `Beans` definitions.
 - `@Autowired` wires the class into the `Bean` that needs it.
+- `@RestController` = `@Controller` + `@ResponseBody`. `@ResponseBody` converts
+  the output to `JSON`.
 
 ![Dependency injection process](./assets/dependency_injection_process.png)
