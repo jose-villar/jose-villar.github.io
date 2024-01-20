@@ -16,7 +16,7 @@ the `mbsync` command:
 
 `~/.config/systemd/user/mbsync.service`
 
-```
+```systemd
 [Unit]
 Description=Mailbox synchronization service
 
@@ -33,7 +33,7 @@ every 5 minutes:
 
 `~/.config/systemd/user/mbsync.timer`
 
-```
+```systemd
 [Unit]
 Description=Mailbox synchronization timer
 
