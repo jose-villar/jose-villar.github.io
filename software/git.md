@@ -31,6 +31,25 @@ git config --global --unset credential.helper
 git config --global push.autoSetupRemote true
 ```
 
+### Setting up credential helper
+
+```sh
+pacman -Syu gopass git-credential-gopass
+
+# An existing store can be cloned with e.g. gopass clone git@gitlab.example.org:john/passwords.git.
+gopass setup
+# Create a new secret:
+gopass create
+# List all existing secrets:
+gopass ls
+# Copy an existing password to the clipboard:
+gopass show -c foo
+# Remove an existing secret:
+gopass rm foo
+
+git config --global credential.helper gopass
+```
+
 ## Creating a New Project
 
 ### Connect Local Repository to the Cloud
