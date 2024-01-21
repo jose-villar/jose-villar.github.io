@@ -5,7 +5,7 @@
 1. [Clase - Docker](#clase---docker)
 2. [Lab - Docker](#lab---docker)
 3. [Clase - Docker2](#clase---docker2)
-4. [Lab - Docker2 (Ejercicio Práctico 1)](#lab---docker2-(ejercicio-práctico-1))
+4. [Lab - Docker2 (Ejercicio Práctico 1)](<#lab---docker2-(ejercicio-práctico-1)>)
 5. [Clase - Nat/Pat](#clase---nat-pat)
 6. [Clase - RAID](#clase---raid)
 7. [Clase - Servicios DNS](#clase---servicios-dns)
@@ -22,6 +22,8 @@
 - `sudo docker images`
 - `sudo docker ps -a`: sirve para ver los contenedores
 - `sudo docker run -it --rm <image>`: elimina el contenedor una vez cerrado
+- `sudo docker image prune`: delete dangling images
+- `sudo docker container prune`
 - `service <servicio> start`
 
 ### Actividades
@@ -31,12 +33,12 @@
 - Descargar hello-world: `sudo docker pull helo-world`
 - Correr la imagen: `sudo docker run hello-world`
 - Eliminar un contenedor:
-    - Encontrar el id del contenedor con `sudo docker ps -a`
-    - Eliminar contenedor con `sudo docker rm <id>`
-    - Encontrar la imagen con `sudo docker images`
-    - Eliminar la imagen con `sudo docker rmi <id>`
+  - Encontrar el id del contenedor con `sudo docker ps -a`
+  - Eliminar contenedor con `sudo docker rm <id>`
+  - Encontrar la imagen con `sudo docker images`
+  - Eliminar la imagen con `sudo docker rmi <id>`
 
-*Nota:* También se puede descargar y ejecutar una imagen con un solo comando, ejemplo:
+_Nota:_ También se puede descargar y ejecutar una imagen con un solo comando, ejemplo:
 
         sudo docker run docker/whalesay cowsay Hello!
 
@@ -58,11 +60,11 @@
 ### Ejercicio 6
 
 - Iniciar un contenedor de Bash, utilizando la opción -e del comando docker run, para modificar
-el valor de la variable de ambiente HOSTNAME. Use un comando dentro del contenedor para
-mostrar el valor de esta variable, modificada anteriormente.
+  el valor de la variable de ambiente HOSTNAME. Use un comando dentro del contenedor para
+  mostrar el valor de esta variable, modificada anteriormente.
 
-        sudo docker run -ite HOSTNAME=jose ubuntu /bin/bash
-        echo $HOSTNAME
+          sudo docker run -ite HOSTNAME=jose ubuntu /bin/bash
+          echo $HOSTNAME
 
 ### Ejercicio 7
 
@@ -73,64 +75,65 @@ mostrar el valor de esta variable, modificada anteriormente.
 ### Ejercicio 8
 
 - Construir una imagen de Java Development Kit, que utilice como base la imagen de Ubuntu
-20.04 (focal). Instale el Open JDK 8 de Java, a través del gestor de paquetes apt-get:
+  20.04 (focal). Instale el Open JDK 8 de Java, a través del gestor de paquetes apt-get:
 
-        apt-get update
-        apt-get install openjdk-8-jdk
-        java -version
-        exit
+          apt-get update
+          apt-get install openjdk-8-jdk
+          java -version
+          exit
 
-        sudo docker commit <id> <nombre>
+          sudo docker commit <id> <nombre>
 
 ### Ejercicio 9
 
 - Monte el espacio de trabajo de Java (Workspace), en una carpeta compartida entre el directorio local del computador (servidor) y el directorio dentro del contenedor Docker. La idea es que la
-información sea persistente. Utilice la opción -v del comando docker run para montar el directorio
+  información sea persistente. Utilice la opción -v del comando docker run para montar el directorio
 
-        sudo docker run -it -v /home/jose/Workspace/tmp/java:/home <nombre>
+          sudo docker run -it -v /home/jose/Workspace/tmp/java:/home <nombre>
 
 ### Ejercicio 10
 
 Cree un contenedor que ofrezca un servicio web, como puede ser apache2. Utilice como base la
 imagen de ubuntu. Una vez creada la imagen:
+
 - Verifique el funcionamiento de apache, mapeando el puerto 80 del contenedor, al puerto
-8080 visto desde su computador.
+  8080 visto desde su computador.
 - Cree una imagen de este contenedor y expórtela a su cuenta de docker hub.
 - Permita que alguno de sus compañeros pueda acceder a esa imagen y verifique que la otra
-persona es capaz de ejecutarla y exponer un puerto.
+  persona es capaz de ejecutarla y exponer un puerto.
 - Guarde una copia local de esta imagen, en un fichero con extensión .tar.
 - Cargue la imagen del contenedor archivado anteriormente en formato tar. Utilice la opción
-load
+  load
 
-        sudo docker run -it ubuntu /bin/bash
-        apt-get update
-        apt install nginx
-        apt install systemctl
-        systemctl enable nginx
-        systemctl start nginx
-        exit
+          sudo docker run -it ubuntu /bin/bash
+          apt-get update
+          apt install nginx
+          apt install systemctl
+          systemctl enable nginx
+          systemctl start nginx
+          exit
 
-        sudo docker commit <containerid> <username/nombre>
-        sudo docker run -dti -p 8080:80 <username/nombre>
+          sudo docker commit <containerid> <username/nombre>
+          sudo docker run -dti -p 8080:80 <username/nombre>
 
-        sudo docker tag <nombre> <idkjose96/<nombre>>
-        sudo docker push <idkjose96/<nombre>>
+          sudo docker tag <nombre> <idkjose96/<nombre>>
+          sudo docker push <idkjose96/<nombre>>
 
-        sudo docker save <nombre> -o <nombre.tar>
-        sudo docker load --input <nombre.tar>
-
+          sudo docker save <nombre> -o <nombre.tar>
+          sudo docker load --input <nombre.tar>
 
 ## Clase - Docker2
 
 - Hay 3 tipos de conexiones de red (o drivers) en Docker:
-    - **Bridge:** hay una interfaz *docker0* en cuyo rango se encuentran todas las IP's de los contenedores de docker.
-    - **Host:** los puertos del host se mapean a los de los contenedores, es decir, si hay una app corriendo en el puerto 80 de un contenedor, también estará en el puerto 80 del host.
-    - **None**: no habilita ninguna interfaz de red. Puede ser útil si es que solamente se quisiera montar un volumen.
+
+  - **Bridge:** hay una interfaz _docker0_ en cuyo rango se encuentran todas las IP's de los contenedores de docker.
+  - **Host:** los puertos del host se mapean a los de los contenedores, es decir, si hay una app corriendo en el puerto 80 de un contenedor, también estará en el puerto 80 del host.
+  - **None**: no habilita ninguna interfaz de red. Puede ser útil si es que solamente se quisiera montar un volumen.
 
 - Existen 2 tipos de configuraciones en el modo **bridge**:
 
-    - Default
-    - Custom
+  - Default
+  - Custom
 
 - Para hacer una interfaz custom:
 
@@ -160,7 +163,6 @@ Para ejecutar el `Dockerfile` se utiliza el siguiente comando:
 
         sudo docker build -t <username>/<nombreapp> <ruta del dockerfile>
 
-
 ## Lab - Docker2 (Ejercicio Práctico 1)
 
 ### Ejercicio 1
@@ -180,8 +182,8 @@ Cree una imagen que utilice como base la imagen de Ubuntu:20.04, e instale y con
 Este archivo brinda una información detallada de los servicios y configuraciones de PHP
 en su servidor.
 
-
 ##### Dockerfile
+
         FROM ubuntu
         ARG DEBIAN_FRONTEND=noninteractive
         MAINTAINER Jose Villar
@@ -208,6 +210,7 @@ en su servidor.
         EXPOSE 80
 
 ##### Supervisor
+
         [supervisord]
         user=root
         nodaemon=true
@@ -266,7 +269,6 @@ Para resolver el ejercicio, basta con crear un archivo `docker-compose.yml` con 
 - Inside: controlable, incluye ambas interfaces del router
 - Outside: lo externo, el internet
 
-
 - NAT se utiliza para traducir un rango de direcciones privadas a un rango de direcciones públicas
 - NAT solo permite paquetes de tipo TCP, UDP y algunos ICMP
 - No se intercambia información de routing a través de NAT
@@ -274,19 +276,22 @@ Para resolver el ejercicio, basta con crear un archivo `docker-compose.yml` con 
 ### NAT
 
 #### NAT básico
+
 - Solo cambia la dirección IP. En la tabla de NAT se mapea una dirección privada a una dirección privada.
 
 #### PAT
+
 - Se modifica la dirección IP y el puerto. Permite multiplexar varias IPs privadas en una IP pública, variando los puertos.
-- También llamado *masquerading* o NAT overload
+- También llamado _masquerading_ o NAT overload
 
 #### Tipos de NAT
+
 A continuación se listan los principales tipos de NAT
 
 ##### NAT estático
+
 - La tabla de conversión de direcciones y puertos no se modifica una vez encendido el router
 - Inconveniente: por cada IP privada se necesita una IP pública
-
 
                 Router# configure terminal
                 Router(config)# ip nat inside source static <IP privada> <IP pública>
@@ -301,9 +306,9 @@ A continuación se listan los principales tipos de NAT
                 Router# show ip nat translations
 
 ##### NAT dinámico
+
 - Las entradas de la tabla de direcciones y puertos se crean y destruyen según el tráfico
 - Por cada IP privada se necesita una IP pública
-
 
                 Router(config)# ip nat pool <NOMBRE> <IP pública> netmask <mask>
                 Router(config)# access-list 1 permit <192.168.0.0> <0.0.0.255>
@@ -314,13 +319,11 @@ A continuación se listan los principales tipos de NAT
                 Router(config)# interface FastEthernet 0/1
                 Router(config-if)# ip nat outside
 
-
-
 ##### NAT con sobrecarga (PAT overload)
+
 - Se utiliza solo una dirección IP, pero con diferentes puertos
 - Un computador tiene 65536 puertos
 - Es probablemente el más utilizado
-
 
                 Router(config)# access-list 1 permit <192.168.0.0> <0.0.0.255>
                 Router(config)# ip nat inside source list 1 interface f 0/1 overload
@@ -331,8 +334,8 @@ A continuación se listan los principales tipos de NAT
                 Router(config-if)# ip nat outside
 
 ##### NAT con sobrecarga y múltiples IP públicas
-- Una sola IP permite 65536 conexiones simultáneas, pero esta variación del PAT tradicional agrega un grupo de IPs públicas
 
+- Una sola IP permite 65536 conexiones simultáneas, pero esta variación del PAT tradicional agrega un grupo de IPs públicas
 
                 Router(config)# ip nat pool <RANGO_PAT_PUBLICO> 200.1.1.1 200.1.1.4 netmask 255.255.255.248
                 Router(config)# access-list 1 permit <192.168.0.0> <0.0.0.255>
@@ -343,15 +346,12 @@ A continuación se listan los principales tipos de NAT
                 Router(config)# interface FastEthernet 0/1
                 Router(config-if)# ip nat outside
 
-
-
 ### Nube Frame Relay
 
 - Ambas interfaces deben estar en la misma red
 - Entrar a la configuración de la nube > config > interface > agregar DLCI a cada interfaz
 - Nube > config > connections > frame relay > agregar las conexiones creadas
 - Activar el encapsulamiento frame relay en las interfaces de los routers que se conectan a la nube:
-
 
                 Router(config-if)# encapsulation frame-relay
 
@@ -370,25 +370,20 @@ A continuación se listan los principales tipos de NAT
 - RAID 10: velocidad y tolerancia a fallos. Es el que ofrece mayor rendimiento. Soporta fallos en varias unidades simultáneamente. El total de discos debe ser par. Tiene un RAID 0 global, que utiliza un nnivel inferior de RAID 1.
 - Nivel 5: acceso independiente con paridad distribuida. Permite utilizar hasta un 80% de los discos para almacenamiento, y el resto para paridad. Le asigna información de paridad a todos los discos. Es la solución más económica por megabyte
 
-
-
 ## Clase - Servicios DNS
-
 
 - Un servidor DNS sirve para traducir nombres de dominio a direcciones IP's
 - Utiliza el puerto 53, con UDP en vez de TCP. UDP es un protocolo no orientado a conexión
-
 
                 nslookup google.com
 
 ## Clase - Introducción a la seguridad en redes de computadores
 
 - Los elementos por orden de importancia son: los datos, el hardware y el software.
-- Freenom: Para crear dominios  gratis
+- Freenom: Para crear dominios gratis
 - Lets encrypt: genera los
 
 ## Proyecto Unidad 2 y 3
-
 
         docker run -ti --name db-prestashop--mysql --network prestashop-net -e MYSQL_ROOT_PASSWORD=admin -p 3307:3306 -d mysql:5.7
 
@@ -401,5 +396,3 @@ A continuación se listan los principales tipos de NAT
 
         a2enmod ssl
         service apache2 restart
-
-
