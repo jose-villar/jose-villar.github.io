@@ -164,6 +164,7 @@ Ex: source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlightin
 
 31. Screen sharing
     pacman -S xdg-desktop-portal-hyprland
+    pacman -S xdg-desktop-portal-gtk
     https://gist.github.com/PowerBall253/2dea6ddf6974ba4e5d26c3139ffb7580
 
 32. Command runner
