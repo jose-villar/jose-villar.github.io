@@ -1,5 +1,10 @@
 # Getting started
 
+## Fixes
+
+- To fix incorrect signatures error, refresh pacman keys:
+  `sudo pacman-key --refresh-keys`
+
 ## Changing defaults
 
 - Change default editor and browser at `/etc/environment`
@@ -166,6 +171,7 @@ Ex: source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlightin
     pacman -S xdg-desktop-portal-hyprland
     pacman -S xdg-desktop-portal-gtk
     https://gist.github.com/PowerBall253/2dea6ddf6974ba4e5d26c3139ffb7580
+    pacman -S xwaylandvideobridge
 
 32. Command runner
     yay just
