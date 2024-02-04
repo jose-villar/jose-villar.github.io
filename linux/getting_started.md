@@ -228,3 +228,6 @@ sudo pacman -S keychain
 # add this to your .zshrc
 eval $(keychain --eval --quiet ~/.ssh/id_ed25519)
 ```
+
+42. Clipboard support for vim in wayland
+    yay vim-wayland-clipboard
