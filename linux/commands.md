@@ -53,6 +53,18 @@ example:
   that all data is written to the USB drive and it's safe to remove: `sync`
 - `eject /dev/sdX`: Safely eject the USB drive from your system.
 
+## Format a USB device
+
+1. Identify the USB Device.
+   `lsblk`
+2. Partition the USB Device: Use parted to partition the USB device with the
+   GPT scheme.
+   `sudo parted /dev/sdX mklabel gpt`
+3. Create a primary partition formatted as FAT32 that spans the entire disk.
+   `sudo parted /dev/sdX mkpart primary fat32 1MiB 100%`
+4. Format the partition with the FAT32 file system:
+   `sudo mkfs.fat -F32 /dev/sdX1`
+
 # Media
 
 ## Media Types
