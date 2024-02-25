@@ -231,3 +231,6 @@ eval $(keychain --eval --quiet ~/.ssh/id_ed25519)
 
 42. Clipboard support for vim in wayland
     yay vim-wayland-clipboard
+
+43. Docker
+    sudo pacman -S docker-buildx
